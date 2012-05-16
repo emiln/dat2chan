@@ -8,3 +8,5 @@ if (count($params) == 0 || empty($params[0])) {
 } else {
     // Specific board page.
 }
+
+echo 'You requested the URL "' . $_GET['url'] . '".';
