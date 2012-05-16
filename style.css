@@ -1,0 +1,36 @@
+@import url(http://fonts.googleapis.com/css?family=Carme);
+a {
+    color: #ffb300;
+}
+a:hover {
+    color: #dc3005;
+}
+body {
+    background-color: #4d4d4d;
+    color: #ddd;
+    font-family: "Carme", "Calibri", "Verdana";
+    font-size: 16px;
+}
+div#content {
+    margin-top: 35px;
+}
+div#navigation {
+    border-style:double;
+    border-width:3px;
+    border-color:#4D4D4D;
+    color: #00916f;
+    background-color:#363636;
+    height:25px;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+}
+div#navigation h1 {
+    display: inline;
+    font-size: 18px;
+    margin-left: 5px;
+}
+div#navigation a {
+    margin-left: 5px;
+}
