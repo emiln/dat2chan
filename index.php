@@ -16,7 +16,7 @@ switch (count($params)) {
             . 'called "' . $params[0] . '".';
         break;
     case 3:
-        echo $params[1] == 'page' ? 'You requested page ' . $params[2] .
+        echo $params[1] == 'p' ? 'You requested page ' . $params[2] .
             ' of the board "' . $params[0] . '"."' :
             'I am not really sure what you requested, bro.';
         break;
