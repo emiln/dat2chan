@@ -12,4 +12,15 @@
       <a href="/dat2chan/rawrsomeboard">rawrsomeboard</a>
       <a href="/dat2chan/superfunboard">superfunboard</a>
     </div>
+	<!-- 
+This is the interface that the end-user uses to perform actions on the site; creating/posting in threads etc.
+When clicked, these links should expand into a post editor that allows you to create or edit content on the site
+The post editor will have to include a text-input field for the main content of the post, which name you post under and functionality for uploading a file that will be attached to your post and the name of the thread you wish to post in.
+-->
+	<div id="action">
+		<a>Create new thread</a>
+			<!--Creates a new thread in the current board. If no board is specified, the user is doing it wrong and must be terminated: Issue a highly trained dat2 pacifier squad; else: creates a new thread at the top of the page-->
+		<a>Create post</a>
+			<!--Creates a new post in the current thread. If no thread is specified, the user will need to define which thread to post in or create a new thread-->
+	</div>
     <div id="content">
