@@ -5,7 +5,7 @@ class Poster {
         echo '<div class="thread">';
         echo "<h2><span class=\"op\">$op</span> $title " .
           "<span class=\"time\">$time</span></h2>";
-        echo "<div class=\"message\">$message</div>";
+        echo '<div class="message">' . nl2br($message) . '</div>';
         echo "</div>\n";
     }
 
