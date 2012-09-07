@@ -43,3 +43,11 @@ margin-left: 5px;
 display: inline;
 color: #00916f;
 }
+div#watchlist {
+position:fixed;
+right:0px;
+top:50px;
+width:25%;
+margin-right:5px;
+
+}
