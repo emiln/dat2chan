@@ -1,4 +1,9 @@
 <?php
+// Load various stuff.
+include('DB.class.php');
+include('Util.class.php');
+include('Poster.class.php');
+
 // Extract the parameters passed in the URL.
 $params = explode('/', $_GET['url']);
 
@@ -11,8 +16,18 @@ switch (count($params)) {
         echo 'You requested nothing at all. What are you doing, bro?';
         break;
     case 1:
-        echo empty($params[0]) ? 'You requested an empty board.' :
-            'You requested the front page of board "' . $params[0] . '".';
+        $board_q = 'SELECT id FROM dat2chan_boards WHERE name=?';
+        $board_r = DB::query($board_q, array($params[0]));
+        $board_r = $board_r[0]['id'];
+        $query = 'SELECT * FROM dat2chan_threads WHERE board=?';
+        $res = DB::query($query, array($board_r));
+        if (count($res) == 0) {
+            Poster::no_threads();
+        } else {
+            foreach ($res as $r) {
+                Poster::thread($r);
+            }
+        }
         break;
     case 2:
         echo 'You requested a thread called "' . $params[1] . '" from a board '
