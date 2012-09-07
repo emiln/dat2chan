@@ -44,10 +44,15 @@ display: inline;
 color: #00916f;
 }
 div#watchlist {
+background-color:#363636;
+border: 3px double #4d4d4d;
 position:fixed;
 right:0px;
-top:50px;
+top:56px;
 width:25%;
 margin-right:5px;
-
+}
+ol {
+  margin-top: 0px;
+  padding-top: 0px;
 }
