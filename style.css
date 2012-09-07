@@ -43,7 +43,7 @@ margin-left: 5px;
 display: inline;
 color: #00916f;
 }
-div#watchlist {
+div#right-menu {
 background-color:#363636;
 border: 3px double #4d4d4d;
 position:fixed;
@@ -52,7 +52,33 @@ top:56px;
 width:25%;
 margin-right:5px;
 }
+div#results {
+  color: #ddd;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+div#hide-watcher {
+  font-size: 12px;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+}
 ol {
   margin-top: 0px;
   padding-top: 0px;
+}
+input[type=text] {
+  font-family: "Carme", "Calibri", "Verdana";
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+hr {
+  background-color: #4d4d4d;
+  border: none;
+  color: #4d4d4d;
+  height: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
