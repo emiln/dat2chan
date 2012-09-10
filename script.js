@@ -1,6 +1,4 @@
 $(document).ready(function() {
-<<<<<<< HEAD
-<<<<<<< HEAD
     var offset =
         ($(window).width() - $('#right-menu').width() -
          $('.thread:first').width() - 40) / 2;
@@ -25,9 +23,6 @@ $(document).ready(function() {
             $('#watchlist, #searchlist').show(250);
             var h = $('#right-menu').attr('old-height');
             $('#hide-watcher > a').text('Hide');
-=======
-=======
->>>>>>> Added a bit of JavaScript.
     $('#hide-watcher').toggle(
         function() {
             $('#watchlist, #searchlist').hide(250);
@@ -40,10 +35,6 @@ $(document).ready(function() {
         }, function() {
             $('#watchlist, #searchlist').show(250);
             var h = $('#right-menu').attr('old-height');
-<<<<<<< HEAD
->>>>>>> Added a bit of JavaScript.
-=======
->>>>>>> Added a bit of JavaScript.
             $('#right-menu').animate({
                 width: "25%",
                 height: h
