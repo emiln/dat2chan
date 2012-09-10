@@ -13,6 +13,10 @@ body {
 }
 div#content {
     margin-top: 55px;
+	font-size: 16px;
+}
+div#content h2 {
+	font-size: 21px;
 }
 div#navigation {
     border-style:double;
