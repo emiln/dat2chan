@@ -6,6 +6,7 @@ $(document).ready(function() {
                 var h = $('#right-menu').height();
               $('#right-menu').attr('old-height', h);
             }
+            $('#hide-watcher > a').text('Show');
             $('#right-menu').animate({
                 width: '35px',
                 height: '20px'
@@ -13,6 +14,7 @@ $(document).ready(function() {
         }, function() {
             $('#watchlist, #searchlist').show(250);
             var h = $('#right-menu').attr('old-height');
+            $('#hide-watcher > a').text('Hide');
             $('#right-menu').animate({
                 width: "25%",
                 height: h
