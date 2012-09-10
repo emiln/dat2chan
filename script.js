@@ -2,8 +2,10 @@ $(document).ready(function() {
     $('#hide-watcher').toggle(
         function() {
             $('#watchlist, #searchlist').hide(250);
-            var h = $('#right-menu').height();
-            $('#right-menu').attr('old-height', h);
+            if (!$('#right-menu').attr('old-height')) {
+                var h = $('#right-menu').height();
+              $('#right-menu').attr('old-height', h);
+            }
             $('#right-menu').animate({
                 width: '35px',
                 height: '20px'
