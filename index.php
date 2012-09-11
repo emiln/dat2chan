@@ -25,7 +25,14 @@ switch (count($params)) {
             Poster::no_threads();
         } else {
             foreach ($res as $r) {
-                Poster::thread($r);
+              Poster::thread($r);
+              $post_id = $r['id'];
+              $post_q = 'SELECT * FROM dat2chan_posts WHERE board=?' .
+                ' AND reply_to=?';
+              $post_r = DB::query($post_q, array($board_r, $post_id));
+              foreach ($post_r as $reply) {
+                  Poster::reply($reply);
+              }
             }
         }
         break;

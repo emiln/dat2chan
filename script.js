@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    var offset =
+        ($(window).width() - $('#right-menu').width() -
+         $('.thread:first').width() - 40) / 2;
+    $('.thread, .reply').each(function () {
+        $(this).animate({marginLeft: '+=' + offset}, 0);
+    });
     $('#hide-watcher').toggle(
         function() {
             $('#hide-watcher > a').blur();

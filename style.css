@@ -11,15 +11,34 @@ body {
   font-family: "Carme", "Calibri", "Verdana";
   font-size: 16px;
 }
+div.reply > h3 {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  background-color:#334F47;
+  margin: 0px;
+  margin-bottom: 8px;
+  margin-top: 5px;
+  padding: 1px;
+  padding-left: 3px;
+}
+.reply {
+  background-color: #4B6D63;
+  margin-left: 30px;
+  max-width: 771px;
+}
 .thread {
   background-color:#4B6D63;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  max-width: 60em;
+  max-width: 800px;
 }
-.message {
+.message, .reply-message {
   padding-bottom: 8px;
   padding-left: 8px;
+}
+h2, h3 {
+  text-align: center;
 }
 div#content {
   margin-top: 55px;
@@ -35,16 +54,21 @@ div.thread > h2 {
   border-top-right-radius: 10px;
   padding: 2px;
   padding-left: 8px;
-  padding-right: 8px;
-  /*border-style:solid;
-  border-width:3px;
-  border-color:#4D4D4D;*/
+  padding-right: 4px;
 }
-div.thread .op {
+div.thread .op, div.reply .poster {
   color: #ffb300;
   font-weight: bold;
 }
-div.thread .time {
+.time {
+  font-size: 14px;
+  float: right;
+}
+.op, .poster {
+  float: left;
+}
+h2 > .time {
+  padding-top: 2px;
 }
 div#navigation {
   border-style:double;
@@ -83,6 +107,7 @@ div#right-menu {
   top:56px;
   width:25%;
   margin-right:5px;
+  z-index: 100;
 }
 div#results {
   color: #ddd;
