@@ -15,6 +15,11 @@ class Poster {
           <div class="message"><?php echo nl2br($message); ?></div>
         </div>
         <?php
+        echo '<div class="thread">';
+        echo "<h2><span class=\"op\">$op</span>$title" .
+          "<span class=\"time\">$time</span></h2>";
+        echo '<div class="message">' . nl2br($message) . '</div>';
+        echo "</div>\n";
     }
 
     static function no_threads() {
@@ -39,5 +44,14 @@ class Poster {
           <div class="reply-message"><?php echo nl2br($message); ?></div>
         </div>
         <?php
+    }
+
+    static function reply($reply) {
+        extract($reply);
+        echo '<div class="reply">';
+        echo "<h3><span class=\"poster\">$poster</span>$title" .
+          "<span class=\"time\">$time</span></h3>";
+        echo '<div class="reply-message">' . nl2br($message) . '</div>';
+        echo "</div>\n";
     }
 }
