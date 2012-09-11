@@ -13,6 +13,8 @@ body {
 }
 .thread {
   background-color:#4B6D63;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   max-width: 60em;
 }
 .message {
@@ -24,15 +26,25 @@ div#content {
   font-size: 14px;
 }
 div.thread > h2 {
+  display: block;
   font-size: 16px;
+  font-weight: normal;
   margin-bottom: 8px;
   background-color:#334F47;
-  border-style:double;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  /*border-style:solid;
   border-width:3px;
-  border-color:#4D4D4D;
+  border-color:#4D4D4D;*/
 }
 div.thread .op {
   color: #ffb300;
+  font-weight: bold;
+}
+div.thread .time {
 }
 div#navigation {
   border-style:double;
