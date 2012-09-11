@@ -1,65 +1,76 @@
 @import url(http://fonts.googleapis.com/css?family=Carme);
 a {
-    color: #ffb300;
+  color: #ffb300;
 }
 a:hover {
-    color: #dc3005;
+  color: #dc3005;
 }
 body {
-    background-color: #4d4d4d;
-    color: #ddd;
-    font-family: "Carme", "Calibri", "Verdana";
-    font-size: 16px;
+  background-color: #4d4d4d;
+  color: #ddd;
+  font-family: "Carme", "Calibri", "Verdana";
+  font-size: 16px;
+}
+.thread {
+  background-color:#4B6D63;
+  max-width: 60em;
+}
+.message {
+  padding-bottom: 8px;
+  padding-left: 8px;
 }
 div#content {
-    margin-top: 55px;
-	font-size: 14px;
-	background-color:#4B6D63;
+  margin-top: 55px;
+  font-size: 14px;
 }
-div#content h2 {
-	font-size: 16px;
-	background-color:#334F47;
-	border-style:double;
-	border-width:1px;
-	border-color:#4D4D4D;
+div.thread > h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  background-color:#334F47;
+  border-style:double;
+  border-width:3px;
+  border-color:#4D4D4D;
+}
+div.thread .op {
+  color: #ffb300;
 }
 div#navigation {
-    border-style:double;
-    border-width:3px;
-    border-color:#4D4D4D;
-    color: #00916f;
-    background-color:#363636;
-    position:fixed;
-    top:0px;
-    left:0px;
-    width: 100%;
+  border-style:double;
+  border-width:3px;
+  border-color:#4D4D4D;
+  color: #00916f;
+  background-color:#363636;
+  position:fixed;
+  top:0px;
+  left:0px;
+  width: 100%;
 }
 div#navigation h1 {
-    display: inline;
-    font-size: 18px;
-    margin-left: 5px;
+  display: inline;
+  font-size: 18px;
+  margin-left: 5px;
 }
 div#navigation a {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 div#action {
-    color: #00916f;
-    height:25px;
-    width: 100%;
+  color: #00916f;
+  height:25px;
+  width: 100%;
 }
 div#action a {
-margin-left: 5px;
-display: inline;
-color: #00916f;
+  margin-left: 5px;
+  display: inline;
+  color: #00916f;
 }
 div#right-menu {
-background-color:#363636;
-border: 3px double #4d4d4d;
-position:fixed;
-right:0px;
-top:56px;
-width:25%;
-margin-right:5px;
+  background-color:#363636;
+  border: 3px double #4d4d4d;
+  position:fixed;
+  right:0px;
+  top:56px;
+  width:25%;
+  margin-right:5px;
 }
 div#results {
   color: #ddd;
