@@ -37,7 +37,7 @@ div.reply > h3 {
   padding-bottom: 8px;
   padding-left: 8px;
 }
-h2, h3 {
+.thread h2, .reply h3 {
   text-align: center;
 }
 div#content {
@@ -114,6 +114,9 @@ div#results {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 10px;
+}
+#watchlist div {
+  padding-left: 45px;
 }
 div#hide-watcher {
   font-size: 12px;
