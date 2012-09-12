@@ -1,6 +1,9 @@
 <?php
 class Poster {
     static function thread($fields) {
+        foreach ($fields as $f) {
+            $f = utf8_encode($f);
+        }
         extract($fields);
         ?>
         <div class="thread">
@@ -22,6 +25,9 @@ class Poster {
     }
 
     static function reply($reply) {
+        foreach ($reply as $f) {
+            $f = utf8_decode($f);
+        }
         extract($reply);
         ?>
         <div class="reply">

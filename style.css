@@ -8,7 +8,7 @@ a:hover {
 body {
   background-color: #4d4d4d;
   color: #ddd;
-  font-family: "Carme", "Calibri", "Verdana";
+  font-family: "DejaVu Sans", "Carme", "Calibri", "Verdana";
   font-size: 16px;
 }
 div.reply > h3 {
@@ -26,12 +26,14 @@ div.reply > h3 {
   background-color: #4B6D63;
   margin-left: 30px;
   max-width: 771px;
+  word-wrap: break-word;
 }
 .thread {
   background-color:#4B6D63;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   max-width: 800px;
+  word-wrap: break-word;
 }
 .message, .reply-message {
   padding-bottom: 8px;
@@ -130,7 +132,7 @@ ol {
   padding-top: 0px;
 }
 input[type=text] {
-  font-family: "Carme", "Calibri", "Verdana";
+  font-family: "DejaVu Sans", "Carme", "Calibri", "Verdana";
   font-size: 16px;
   margin-left: 10px;
   margin-top: 5px;

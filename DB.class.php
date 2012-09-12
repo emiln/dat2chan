@@ -110,9 +110,10 @@ class DB {
         $db_name = (string)$db_node->database;
         $user = (string)$db_node->user;
         $pass = (string)$db_node->password;
+        $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
         try {
             self::$dbh = new PDO('mysql:host=' . $host . ';dbname=' .
-                $db_name, $user, $pass);
+                $db_name, $user, $pass, $options);
         } catch (PDOException $e) {
             echo $e;
         }
