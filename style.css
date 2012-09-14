@@ -115,10 +115,13 @@ div#right-menu {
   position:fixed;
   right:0px;
   top:56px;
-  width:25%;
+  width:20%;
   margin-right:5px;
   z-index: 100;
   opacity:0.8;
+}
+div#right-menu ol {
+font-size: 14px;
 }
 div#right-menu:hover {
 opacity:1;
