@@ -8,11 +8,17 @@ class Poster {
         extract($fields);
         ?>
         <div class="thread">
+        
+        
           <h2>
             <span class="poster"><?php echo $poster; ?></span>
-            <a href="<?php echo $baseurl.'/'.'awsm' . '/' . titlegenerator::cleanurl($title); ?>"><?php echo $title; ?></a>
+            <a href="<?php echo $baseurl.'/'.'awsm' . '/' . $url; ?>"><?php echo $title; ?></a>
             <span class="time"><?php echo $time; ?></span>
           </h2>
+         <?php if (file_exists($file)) {
+            ?>
+          <a href="<?php echo $imgurl ?>" target="_blank"><img src="<?php echo $imgurl_thumb ?>" alt="No image here, bro"></a>
+            <?php } ?>
           <div class="message"><?php echo nl2br($message); ?></div>
         </div>
         <?php
@@ -37,6 +43,7 @@ class Poster {
         extract($reply);
         ?>
         <div class="reply">
+        
           <h3>
             <span class="poster"><?php echo $poster; ?></span>
             <?php if (is_null($title)) {
@@ -47,6 +54,10 @@ class Poster {
             }?>
             <span class="time"><?php echo $time; ?></span>
           </h3>
+         <?php if (file_exists($file)) {
+            ?>
+          <a href="<?php echo $imgurl ?>" target="_blank"><img src="<?php echo $imgurl_thumb ?>" alt="No image here, bro"></a>
+            <?php } ?>
           <div class="reply-message"><?php echo nl2br($message); ?></div>
         </div>
         <?php
@@ -55,10 +66,10 @@ class Poster {
 	?>
 	<div id="reply_form">
 	<div id="reply_hide">
-	<a href = "#"class = "reply_hide">Reply</a>
+	<a href="#" class = "reply_hide">Reply</a>
 	</div>
 	<div id="reply_input">
-      <form action="/submit_reply.php" method="post">
+      <form action="/submit_reply.php" method="post" enctype="multipart/form-data">
       <input type = "text" name="title" placeholder="The title of your post"><br />
       <input type = "text" name="name" placeholder="This is the name you post under"><br />
       <textarea rows="8" cols="50" name="message" placeholder ="Your message goes here."></textarea>
@@ -67,4 +78,6 @@ class Poster {
       <input type="hidden" name="reply_to" value="<?php echo $id; ?>"></input>
       <input type = "submit" value="post" name="post"><?php
       }
-}
+    }
+  
+

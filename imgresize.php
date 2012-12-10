@@ -7,9 +7,7 @@ class thumbcreator{
         $maxsize=250;   
 
         //get the file and its properties
-        $filename='/home/2/d/dat2chan/www/img/testimg.jpg';
         $originalsize = getimagesize($file.$ext);
-        print_r($originalsize);
         $width=$originalsize[0];
         $height=$originalsize[1];
 
@@ -21,10 +19,11 @@ class thumbcreator{
         else if ($height>$width){
             $percent=($height/$maxsize)*100;
             }
+        else if($width===$height) {
+            $percent=($width/$maxsize)*100;
+        }
 
         $percent = $percent/100;
-        echo $percent;
-        echo "<br />";
         $thumb_widt=$width/$percent;
         $thumb_width=(int)$thumb_widt;
         $thumb_heigh=$height/$percent;
@@ -32,7 +31,15 @@ class thumbcreator{
 
         //create a new file for the thumbnail & the original, so we may use it with imagecopyresized below
         $thumb = imagecreatetruecolor($thumb_width,$thumb_height);
-        $source = imagecreatefromjpeg($file.$ext);
+        if($ext===".jpg"){
+            $source = imagecreatefromjpeg($file.$ext);
+        }
+        else if($ext===".png") {
+            $source = imagecreatefrompng($file.$ext);
+        }
+        else if($ext===".gif") {
+            $source = imagecreatefromgif($file.$ext);
+        }
         //resize
         imagecopyresized($thumb,$source,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
         if($ext===".jpg"){

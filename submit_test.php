@@ -1,7 +1,8 @@
 <?php
-include('DB.class.php');
-$idquery = '(SELECT id FROM threads) UNION (SELECT id FROM posts)';
-$idresult = DB::query($idquery,array());
-print_r($idresult); echo "<br />";
-print_r($idresult[0]['id']);
+$string = "apostrophe'";
+$str = 'Quote "';
+$filteredstring=htmlentities($string,ENT_COMPAT,"UTF-8");
+$filteredstr=htmlentities($str,ENT_COMPAT,"UTF-8");
+echo($filteredstring);
+echo($filteredstr);
 ?>

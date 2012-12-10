@@ -17,16 +17,17 @@ div.reply > h3 {
   font-weight: normal;
   background-color:#334F47;
   margin: 0px;
-  margin-bottom: 8px;
   margin-top: 5px;
   padding: 1px;
   padding-left: 3px;
+  margin-top:0px;
 }
 .reply {
   background-color: #4B6D63;
   margin-left: 30px;
   max-width: 771px;
   word-wrap: break-word;
+  overflow:auto;
 }
 .thread {
   background-color:#4B6D63;
@@ -34,11 +35,14 @@ div.reply > h3 {
   border-top-right-radius: 10px;
   max-width: 800px;
   word-wrap: break-word;
+  overflow:auto;
+  margin-top:5px;
 }
 .message, .reply-message {
   font-family: "DejaVu Sans", "Carme", "Calibri", "Verdana";
   padding-bottom: 8px;
   padding-left: 8px;
+  padding-top:8px;
 }
 .thread h2, .reply h3 {
   text-align: center;
@@ -51,17 +55,17 @@ div.thread > h2 {
   display: block;
   font-size: 16px;
   font-weight: normal;
-  margin-bottom: 8px;
   background-color:#334F47;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 2px;
   padding-left: 8px;
   padding-right: 4px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 div.thread .op, div.reply .poster {
   color: #ffb300;
-  font-weight: bold;
 }
 .time {
   font-size: 14px;
@@ -70,6 +74,13 @@ div.thread .op, div.reply .poster {
 .op, .poster {
   float: left;
   color: #ffb300;
+}
+img {
+  background-color:#334F47;
+  padding:5px;
+  padding-left:8px;
+  float:left;
+  margin-right:8px;
 }
 h2 > .time {
   padding-top: 2px;
@@ -97,6 +108,13 @@ div#action {
   color: #00916f;
   height:25px;
   width: 100%;
+  position:fixed;
+  background-color:#363636;
+  border-width:3px;
+  border-style:double;
+  border-color:#4D4D4D;
+  border-top:none;
+  left:0px;
 }
 div#action a {
   margin-left: 5px;
@@ -110,6 +128,7 @@ margin-top:5px;
 background-color:#363636;
 padding:5px;
 position:fixed;
+top:50px;
 border-top-left-radius:10px;
 border-top-right-radius:10px;
 border-bottom-left-radius:10px;
@@ -127,6 +146,9 @@ border-top-left-radius:5px;
 border-top-right-radius:5px;
 border-bottom-left-radius:5px;
 border-bottom-right-radius:5px;
+position:fixed;
+top:75px;
+left:10px;
 }
 div#reply_input{
 background-color:#4B6D63;

@@ -1,7 +1,7 @@
     $(document).ready(function() {
         var offset =
             ($(window).width() - $('#right-menu').width() -
-             $('.thread:first').width() - 40) / 2;
+             $('.thread:first').width() - 30) / 2;
         $('.thread, .reply').each(function () {
             $(this).animate({marginLeft: '+=' + offset}, 0);
         });

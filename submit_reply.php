@@ -1,5 +1,7 @@
+<?php header("Location: http://www.dat2chan.org/awsm/"); ?>
 <html><body>
 <?php
+
 include('titlegenerator.php');
 include('DB.class.php');
 include('imgresize.php');
@@ -9,7 +11,8 @@ $Message = $_POST["message"];
 $File = $_POST["file"];
 $Board = "1";
 $reply_to = $_POST['reply_to'];
-
+$imgurl=NULL;
+$imgurl_thumb=NULL;
 //default name
 if (empty($Name)) {
     $Name="Pleb";
@@ -19,7 +22,10 @@ if (empty($Name)) {
 $filteredTitle = htmlentities ($Title,ENT_COMPAT,"UTF-8");
 $filteredName = htmlentities ($Name,ENT_COMPAT,"UTF-8");
 $filteredMessage = htmlentities($Message,ENT_COMPAT,"UTF-8");
-
+//default title
+if (empty($Title)) {
+    $filteredTitle="&nbsp";
+}
 //generate a valid id
 $idquery = '(SELECT id FROM threads) UNION (SELECT id FROM posts)';
 $idresult = DB::query($idquery,array());
@@ -40,7 +46,7 @@ else if ($_FILES["file"]["type"]==="image/png") {
 //upload the file and create thumbnail
 if($_FILES["file"]["error"]>0) {
     echo "Something went horribly wrong: " . $_FILES["file"]["error"];}
-else if ($_FILES["file"]["size"]>921600) {
+else if ($_FILES["file"]["size"]>92160000) {
     echo "Try uploading a smaller file, bro";
 }
 else {
@@ -48,15 +54,17 @@ else {
     move_uploaded_file($_FILES["file"]["tmp_name"],"/home/2/d/dat2chan/www/img/".$id.$ext);
     $File="/home/2/d/dat2chan/www/img/".$id;
     thumbcreator::create_thumbnail($File,$ext);
-    }
-    
-$query = 'INSERT INTO posts (id,board,reply_to,title,poster,message,file) VALUES (?,?,?,?,?,?,?)';
-$result = DB::insert($query,array($id,$Board,$reply_to,$filteredTitle,$filteredName,$filteredMessage,$File),'id');
+    $File="/home/2/d/dat2chan/www/img/".$id.$ext;
+    $imgurl="http://www.dat2chan.org/img/".$id.$ext;
+    $imgurl_thumb="http://www.dat2chan.org/img/".$id."_thumb".$ext;
+}
+
+$query = 'INSERT INTO posts (id,board,reply_to,title,poster,message,file,imgurl,imgurl_thumb) VALUES (?,?,?,?,?,?,?,?,?)';
+$result = DB::insert($query,array($id,$Board,$reply_to,$filteredTitle,$filteredName,$filteredMessage,$File,$imgurl,$imgurl_thumb),'id');
 $query1 = 'UPDATE threads SET last_activity=CURRENT_TIMESTAMP WHERE id=?';
 $result1 = DB::update($query1,array($reply_to));
 if(count($result)>0) {
     echo "Success! \o/";
-    print_r($idresult);
 }
 else {
     echo "massive failure :(";

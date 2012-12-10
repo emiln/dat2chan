@@ -97,7 +97,7 @@ class DB {
             self::disconnect();
             return $prep->rowCount();
         } else {
-            self::$last_error = $self::$dbh->errorInfo();
+            self::$last_error = self::$dbh->errorInfo();
             self::disconnect();
             return false;
         }
