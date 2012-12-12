@@ -109,6 +109,7 @@ div#action {
   height:25px;
   width: 100%;
   position:fixed;
+  top:25px;
   background-color:#363636;
   border-width:3px;
   border-style:double;
@@ -206,4 +207,8 @@ font-family: "DejaVu Sans", "Carme", "Calibri", "Verdana";
 }
 textarea {
 font-family:"DejaVu Sans","Carme","Calibri","Verdana";
+}
+.anchor {
+  position: relative;
+  top: -35px;
 }

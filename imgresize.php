@@ -40,8 +40,15 @@ class thumbcreator{
         else if($ext===".gif") {
             $source = imagecreatefromgif($file.$ext);
         }
+        //apply a gaussian blur
+        $gaussian=array(array(1,2,1),
+                        array(2,4,1),
+                        array(1,2,1));
+        $divisor=array_sum(array_map('array_sum',$gaussian));
+        imageconvolution($source,$gaussian,$divisor,0);
         //resize
         imagecopyresized($thumb,$source,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
+
         if($ext===".jpg"){
             imagejpeg($thumb,$file."_thumb".$ext);
         }
@@ -51,7 +58,6 @@ class thumbcreator{
         else if($ext===".gif"){
             imagegif($thumb,$file."_thumb".$ext);
         }
-        //output
     }
 }
 ?>

@@ -28,13 +28,15 @@ switch (count($params)) {
               Poster::thread($r);
               $post_id = $r['id'];
               $post_q = 'SELECT * FROM posts WHERE board=?' .
-                ' AND reply_to=?';
+                ' AND reply_to=? ORDER BY id DESC LIMIT 5';
               $post_r = DB::query($post_q, array($board_r, $post_id));
+              $post_r = array_reverse($post_r);
               foreach ($post_r as $reply) {
                   Poster::reply($reply);
                 }
             }
         }
+        Poster::thread_form($board_r);
         break;
     case 2:
     $thread_q = 'SELECT * FROM threads WHERE clean_title=?';
@@ -49,20 +51,47 @@ switch (count($params)) {
             $post_id = $thread['id'];
             $post_q = 'SELECT * FROM posts WHERE reply_to=?';
             $post_r = DB::query($post_q, array($post_id));
+            $board_q = 'SELECT id FROM boards WHERE name=?';
+            $board_r = DB::query($board_q, array($params[0]));
+            $board_name = $params[0];
+            $board_r = $board_r[0]['id'];
             foreach ($post_r as $post) {
                 Poster::reply($post);
             }
-	    Poster::reply_form($post_id);
+
         }
+        Poster::reply_form($post_id,$board_r);
     }
         break;
     case 3:
-        echo $params[1] == 'p' ? 'You requested page ' . $params[2] .
-            ' of the board "' . $params[0] . '".' :
-            'I am not really sure what you requested, bro.';
+        if ($params[1]=='p') {
+            $board_q='SELECT id FROM boards WHERE name=?';
+            $board_r=DB::query($board_q,array($params[0]));
+            $board_r=$board_r[0]['id'];
+            $ant_threads=1;
+            $ant_thr=$ant_threads;
+            $query='SELECT * FROM threads WHERE board=? ORDER BY last_activity DESC LIMIT ?*?,?';
+            $result=DB::query($query,array($board_r,$ant_thr,$params[2],$ant_threads));
+            if(count($result)==0){
+                Poster::no_threads();
+            }
+            else {
+              foreach ($result as $r) {
+                  Poster::thread($r);
+                  $post_id = $r['id'];
+                  $post_q = 'SELECT * FROM posts WHERE board=?' .
+                    ' AND reply_to=? ORDER BY id DESC LIMIT 5';
+                  $post_r = DB::query($post_q, array($board_r, $post_id));
+                  $post_r = array_reverse($post_r);
+                  foreach ($post_r as $reply) {
+                      Poster::reply($reply);
+                  }
+                }
+            }
+        }
         break;
+        
 }
-
 // Wrap content in footer.
 include('footer.html');
 ?>

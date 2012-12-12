@@ -1,5 +1,9 @@
+<?php 
+$refer=$_POST['refer'];
+header("Location: http://www.dat2chan.org/$refer"); ?>
 <html><body>
 <?php
+
 include('titlegenerator.php');
 include('DB.class.php');
 include('imgresize.php');
@@ -7,7 +11,7 @@ $Title = $_POST["title"];
 $Name = $_POST["name"];
 $Message = $_POST["message"];
 $File = $_FILES["file"]["name"];
-$Board = 1;
+$Board = $_POST["board"];
 $clean_title = titlegenerator::cleanurl($Title);
 $upload_dir ="/img";
 $imgurl=NULL;

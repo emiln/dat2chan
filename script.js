@@ -59,5 +59,8 @@
 	$('#reply_hide > a').text('Reply');
 	$('#reply_hide').css('background-color','#363636');
 	});
+    var anchor = window.location.hash; 
+    anchor=anchor.concat("p");
+    $(anchor).css({"background-color":"#263632","border":"outset","border-color":"#263632"});
 	});
     

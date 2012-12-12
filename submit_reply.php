@@ -1,4 +1,6 @@
-<?php header("Location: http://www.dat2chan.org/awsm/"); ?>
+<?php 
+$refer=$_POST['refer'];
+header("Location: http://www.dat2chan.org/$refer"); ?>
 <html><body>
 <?php
 
@@ -9,7 +11,7 @@ $Title = $_POST["title"];
 $Name = $_POST["name"];
 $Message = $_POST["message"];
 $File = $_POST["file"];
-$Board = "1";
+$Board = $_POST["board"];
 $reply_to = $_POST['reply_to'];
 $imgurl=NULL;
 $imgurl_thumb=NULL;

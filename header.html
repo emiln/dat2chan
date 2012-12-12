@@ -18,21 +18,7 @@
       When clicked, these links should expand into a post editor that allows you to create or edit content on the site
       The post editor will have to include a text-input field for the main content of the post, which name you post under and functionality for uploading a file that will be attached to your post and the name of the thread you wish to post in.
       -->
-      <div id="action">
-        <a href="#">Create new thread</a>
-        <a href="http://www.dat2chan.org/rules.html">Rules - please read before posting</a>
-        <!--Creates a new post in the current thread. If no thread is specified, the user will need to define which thread to post in or create a new thread-->
-      </div>
-      <div id="postform">
-      <form action="/submission.php" method="post" enctype="multipart/form-data">
-      <input type = "text" name="title" placeholder="The title of your thread"><br />
-      <input type = "text" name="name" placeholder="This is the name you post under"><br />
-      <textarea rows="8" cols="50" name="message" placeholder ="Your message goes here."></textarea>
-      <input type = "file" accept="image" name="file">
-      <br />
-      <input type = "submit" value="post" name="post">
-      </form>
-      </div>
+
       
       <div id="right-menu">
         <div id="hide-watcher"><a href="#">Hide</a></div>

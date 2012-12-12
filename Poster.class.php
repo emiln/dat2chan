@@ -7,12 +7,12 @@ class Poster {
         }
         extract($fields);
         ?>
-        <div class="thread">
-        
+        <div class="thread" id="<?php echo $id ?>p">
+        <span class="anchor" id="<?php echo $id; ?>"></span>
         
           <h2>
-            <span class="poster"><?php echo $poster; ?></span>
-            <a href="<?php echo $baseurl.'/'.'awsm' . '/' . $url; ?>"><?php echo $title; ?></a>
+            <span class="poster"><?php echo $poster; ?> - Post id: <a href="#"><?php echo $id ?></a></span>
+            <a href="<?php echo $baseurl.$_GET['url'].'/'.$url; ?>"><?php echo $title; ?></a>
             <span class="time"><?php echo $time; ?></span>
           </h2>
          <?php if (file_exists($file)) {
@@ -42,10 +42,10 @@ class Poster {
         }
         extract($reply);
         ?>
-        <div class="reply">
-        
+        <div class="reply" id="<?php echo $id; ?>p">
+        <span class="anchor" id="<?php echo $id; ?>"></span>
           <h3>
-            <span class="poster"><?php echo $poster; ?></span>
+            <span class="poster"><?php echo $poster; ?> - Post id: <a href="#"><?php echo $id ?></a></span>
             <?php if (is_null($title)) {
                 echo "&nbsp;";
                 }
@@ -62,7 +62,7 @@ class Poster {
         </div>
         <?php
     }
-    static function reply_form($id) {
+    static function reply_form($id,$board) {
 	?>
 	<div id="reply_form">
 	<div id="reply_hide">
@@ -76,8 +76,31 @@ class Poster {
       <input type = "file" accept="image" name="file">
       <br />
       <input type="hidden" name="reply_to" value="<?php echo $id; ?>"></input>
-      <input type = "submit" value="post" name="post"><?php
+      <input type="hidden" name="board" value="<?php echo $board; ?>"></input>
+      <input type="hidden" name="refer" value="<?php echo $_GET['url']?>"></input>
+      <input type = "submit" value="post" name="post">
+      </div><?php
       }
+    static function thread_form($board) {
+    ?>
+           <div id="action">
+        <a href="#">Create new thread</a>
+        <a href="http://www.dat2chan.org/rules.html">Rules - please read before posting</a>
+        <!--Creates a new post in the current thread. If no thread is specified, the user will need to define which thread to post in or create a new thread-->
+      </div>
+      <div id="postform">
+      <form action="/submission.php" method="post" enctype="multipart/form-data">
+      <input type = "text" name="title" placeholder="The title of your thread"><br />
+      <input type = "text" name="name" placeholder="This is the name you post under"><br />
+      <textarea rows="8" cols="50" name="message" placeholder ="Your message goes here."></textarea>
+      <input type = "file" accept="image" name="file">
+      <input type="hidden" name ="board" value="<?php echo $board; ?>"> </input>
+      <input type="hidden" name="refer" value="<?php echo $_GET['url']?>"></input>
+      <br />
+      <input type = "submit" value="post" name="post">
+      </form>
+      </div>
+      <?php
     }
-  
+  }
 
