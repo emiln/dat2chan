@@ -1,9 +1,9 @@
 <?php 
 $refer=$_POST['refer'];
-header("Location: http://www.dat2chan.org/$refer"); ?>
+header("Location: http://www.dat2chan.org/$refer");?>
 <html><body>
 <?php
-
+include('PostLexer.class.php');
 include('titlegenerator.php');
 include('DB.class.php');
 include('imgresize.php');
@@ -24,6 +24,8 @@ if (empty($Name)) {
 $filteredTitle = htmlentities ($Title,ENT_COMPAT,"UTF-8");
 $filteredName = htmlentities ($Name,ENT_COMPAT,"UTF-8");
 $filteredMessage = htmlentities($Message,ENT_COMPAT,"UTF-8");
+//use Emil's lexer to convert various commands to html
+$filteredMessage = PostLexer::parseString($filteredMessage);
 //default title
 if (empty($Title)) {
     $filteredTitle="&nbsp";

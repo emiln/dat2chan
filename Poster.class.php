@@ -1,5 +1,6 @@
 <?php
 include ('titlegenerator.php');
+include ('PostLexer.class.php');
 class Poster {
     static function thread($fields) {
         foreach ($fields as $f) {

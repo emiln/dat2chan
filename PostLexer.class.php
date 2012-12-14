@@ -8,6 +8,7 @@ class PostLexer {
         "/^(\(quote)/" => "T_QUOTE",
         "/^(\".+\")/" => "T_STRING",
         "/^('.+')/" => "T_STRING",
+        "/^(\&quot;.+&quot;)/" =>  "T_STRING",
         "/^(\d+)/" => "T_NUMBER",
         "/^(\()/" => "T_PAREN_START",
         "/^(\))/" => "T_PAREN_END",
@@ -46,8 +47,8 @@ class PostLexer {
                 if ($end['token'] != "T_PAREN_END") {
                     break;
                 }
-                $res .= '<blockquote cite=' . htmlentities($src['match']) .
-                    '>' . htmlentities($cit['match']) . '</blockquote>';
+                $res .= '<blockquote cite="' . htmlentities($src['match']) .
+                    '">' . htmlentities($cit['match']) . '</blockquote>';
                 $i += 5;
                 break;
             case "T_ITALIC":
@@ -60,7 +61,7 @@ class PostLexer {
                 if ($src['token'] != "T_NUMBER") {
                     break;
                 }
-                $res .= '<a href="' . $src['match'] . '">' . '#' .
+                $res .= '<a href="#' . $src['match'] . '">' . '#' .
                     $src['match'] . '</a>';
                 $i += 2;
                 break;
@@ -120,5 +121,8 @@ class PostLexer {
 
         return false;
     }
+    public static function parseString($string) {
+        $string=self::run(array($string));
+        return self::toHTML($string);}
 }
 ?>

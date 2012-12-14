@@ -30,7 +30,7 @@ foreach($tests as $test) {
     print_r($lex);
     echo "</pre>\n";
     echo "<h3>This is the HTML:</h3>\n";
-    echo PostLexer::toHTML($lex);
+    echo PostLexer::parseString($test);
     echo "<hr />\n";
 }
 ?>

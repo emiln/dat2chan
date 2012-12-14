@@ -3,7 +3,7 @@ $refer=$_POST['refer'];
 header("Location: http://www.dat2chan.org/$refer"); ?>
 <html><body>
 <?php
-
+include('PostLexer.class.php');
 include('titlegenerator.php');
 include('DB.class.php');
 include('imgresize.php');
@@ -60,6 +60,9 @@ else {
 $filteredTitle = htmlentities ($Title,ENT_COMPAT,"UTF-8");
 $filteredName = htmlentities ($Name,ENT_COMPAT,"UTF-8");
 $filteredMessage = htmlentities($Message,ENT_COMPAT,"UTF-8");
+
+//use Emil's lexer to convert various commands to html
+$filteredMessage = PostLexer::parseString($filteredMessage);
 
 //violent insertion happens here.
 $query = 'INSERT INTO threads (id,board,title,clean_title,poster,message,file,imgurl,imgurl_thumb,url,last_activity) VALUES (?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)';
